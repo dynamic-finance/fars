@@ -101,6 +101,18 @@
         .teacher-back {
             transform: rotateY(180deg);
         }
+        
+        .school-details {
+            display: none;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        
+        .show-details {
+            display: block;
+        }
     </style>
 </head>
 <body class="min-h-screen relative overflow-x-hidden">
@@ -121,7 +133,7 @@
         <nav class="hidden md:flex space-x-8 space-x-reverse">
             <a href="#home" class="text-white hover:text-pink-300 transition">صفحه اصلی</a>
             <a href="#about" class="text-white hover:text-pink-300 transition">درباره ما</a>
-            <a href="#teachers" class="text-white hover:text-pink-300 transition">دبیران</a>
+            <a href="#team" class="text-white hover:text-pink-300 transition">گروه کامپیوتر</a>
             <a href="#books" class="text-white hover:text-pink-300 transition">کتاب‌ها</a>
             <a href="#resources" class="text-white hover:text-pink-300 transition">منابع آموزشی</a>
         </nav>
@@ -138,7 +150,7 @@
         </button>
         <a href="#home" class="text-white text-2xl hover:text-pink-300 transition">صفحه اصلی</a>
         <a href="#about" class="text-white text-2xl hover:text-pink-300 transition">درباره ما</a>
-        <a href="#teachers" class="text-white text-2xl hover:text-pink-300 transition">دبیران</a>
+        <a href="#team" class="text-white text-2xl hover:text-pink-300 transition">گروه کامپیوتر</a>
         <a href="#books" class="text-white text-2xl hover:text-pink-300 transition">کتاب‌ها</a>
         <a href="#resources" class="text-white text-2xl hover:text-pink-300 transition">منابع آموزشی</a>
     </div>
@@ -159,8 +171,8 @@
                 <a href="#books" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-medium hover:opacity-90 transition">
                     مشاهده کتاب‌ها
                 </a>
-                <a href="#teachers" class="px-6 py-3 border border-white rounded-full text-white font-medium hover:bg-white hover:bg-opacity-10 transition">
-                    آشنایی با دبیران
+                <a href="#team" class="px-6 py-3 border border-white rounded-full text-white font-medium hover:bg-white hover:bg-opacity-10 transition">
+                    آشنایی با گروه کامپیوتر
                 </a>
             </div>
         </div>
@@ -189,6 +201,14 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4">هنرستان زینب کبری حاجی آباد</h3>
                     <p class="text-gray-300 text-center">یکی از مراکز آموزشی برتر در رشته کامپیوتر در شهرستان زرین‌دشت</p>
+                    <button onclick="toggleDetails('zeynab')" class="mt-4 text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
+                    <div id="zeynab" class="school-details">
+                        <ul class="text-right text-sm text-gray-300 space-y-2">
+                            <li>رشته تولید کننده و توسعه دهنده پایگاه های اینترنتی (کاردانش)</li>
+                            <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
+                            <li>رشته خیاطی لباس شب و عروس (کاردانش)</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="glass-card p-8 rounded-2xl hover-scale">
@@ -197,6 +217,13 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4">هنرستان والفجر شهرپیر</h3>
                     <p class="text-gray-300 text-center">مرکز آموزشی پیشرو در زمینه‌های فنی و حرفه‌ای کامپیوتر</p>
+                    <button onclick="toggleDetails('valfajr')" class="mt-4 text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
+                    <div id="valfajr" class="school-details">
+                        <ul class="text-right text-sm text-gray-300 space-y-2">
+                            <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
+                            <li>رشته حسابداری (فنی و حرفه ای)</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="glass-card p-8 rounded-2xl hover-scale">
@@ -205,98 +232,64 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4">هنرستان شهید پاکیزه خو دبیران</h3>
                     <p class="text-gray-300 text-center">از مراکز آموزشی معتبر در رشته کامپیوتر در سطح شهرستان</p>
+                    <button onclick="toggleDetails('shahid')" class="mt-4 text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
+                    <div id="shahid" class="school-details">
+                        <ul class="text-right text-sm text-gray-300 space-y-2">
+                            <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Teachers Section -->
-    <section id="teachers" class="py-20 px-4 md:px-12 bg-gradient-to-b from-gray-900 to-gray-900 relative">
+    <!-- Team Section -->
+    <section id="team" class="py-20 px-4 md:px-12 bg-gradient-to-b from-gray-900 to-gray-900 relative">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    دبیران گروه کامپیوتر
+                    گروه کامپیوتر شهرستان زرین دشت
                 </h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Teacher 1 -->
-                <div class="teacher-card h-64">
-                    <div class="teacher-inner h-full w-full relative">
-                        <div class="teacher-front glass-card rounded-2xl h-full w-full p-6 flex flex-col items-center justify-center">
-                            <div class="w-24 h-24 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4">
-                                <i class="fas fa-user-tie text-white text-3xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">استاد </h3>
-                            <p class="text-gray-300">تخصص: </p>
-                            <button class="mt-4 text-sm text-pink-400">اطلاعات بیشتر</button>
-                        </div>
-                        <div class="teacher-back glass-card rounded-2xl h-full w-full p-6 flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-pink-900">
-                            <h3 class="text-xl font-bold mb-2">استاد </h3>
-                            <p class="text-sm text-gray-300 text-center mb-4">دارای .. سال سابقه تدریس در زمینه .... و پایگاه داده</p>
-                            <div class="flex space-x-3 space-x-reverse">
-                                <a href="#" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                                    <i class="fab fa-telegram text-white"></i>
-                                </a>
-                                <a href="#" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                                    <i class="fas fa-envelope text-white"></i>
-                                </a>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Work Experts -->
+                <div class="glass-card p-8 rounded-2xl hover-scale">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-user-tie text-white text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-center mb-4">کارشناسان</h3>
+                    <ul class="text-right text-gray-300 space-y-2">
+                        <li>کارشناس فنی حرفه ای و کاردانش: محمدامین ابراهیمی</li>
+                        <li>کارشناس آموزش: حمید رضایی</li>
+                    </ul>
                 </div>
                 
-                <!-- Teacher 2 -->
-                <div class="teacher-card h-64">
-                    <div class="teacher-inner h-full w-full relative">
-                        <div class="teacher-front glass-card rounded-2xl h-full w-full p-6 flex flex-col items-center justify-center">
-                            <div class="w-24 h-24 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4">
-                                <i class="fas fa-user-tie text-white text-3xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">استاد</h3>
-                            <p class="text-gray-300">تخصص: گرافیک کامپیوتری</p>
-                            <button class="mt-4 text-sm text-pink-400">اطلاعات بیشتر</button>
-                        </div>
-                        <div class="teacher-back glass-card rounded-2xl h-full w-full p-6 flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-pink-900">
-                            <h3 class="text-xl font-bold mb-2">استاد </h3>
-                            <p class="text-sm text-gray-300 text-center mb-4">متخصص نرم افزارهای Adobe با .. سال سابقه تدریس</p>
-                            <div class="flex space-x-3 space-x-reverse">
-                                <a href="#" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                                    <i class="fab fa-telegram text-white"></i>
-                                </a>
-                                <a href="#" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                                    <i class="fas fa-envelope text-white"></i>
-                                </a>
-                            </div>
-                        </div>
+                <!-- Head of Group -->
+                <div class="glass-card p-8 rounded-2xl hover-scale">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-users text-white text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-center mb-4">سرگروه</h3>
+                    <p class="text-gray-300 text-center">فاطمه معتمد</p>
                 </div>
                 
-                <!-- Teacher 3 -->
-                <div class="teacher-card h-64">
-                    <div class="teacher-inner h-full w-full relative">
-                        <div class="teacher-front glass-card rounded-2xl h-full w-full p-6 flex flex-col items-center justify-center">
-                            <div class="w-24 h-24 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4">
-                                <i class="fas fa-user-tie text-white text-3xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">استاد </h3>
-                            <p class="text-gray-300">تخصص: شبکه‌های کامپیوتری</p>
-                            <button class="mt-4 text-sm text-pink-400">اطلاعات بیشتر</button>
-                        </div>
-                        <div class="teacher-back glass-card rounded-2xl h-full w-full p-6 flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-pink-900">
-                            <h3 class="text-xl font-bold mb-2">استاد </h3>
-                            <p class="text-sm text-gray-300 text-center mb-4">مدرس دوره‌های سابقه تدریس</p>
-                            <div class="flex space-x-3 space-x-reverse">
-                                <a href="#" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                                    <i class="fab fa-telegram text-white"></i>
-                                </a>
-                                <a href="#" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                                    <i class="fas fa-envelope text-white"></i>
-                                </a>
-                            </div>
-                        </div>
+                <!-- Teachers -->
+                <div class="glass-card p-8 rounded-2xl hover-scale">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-center mb-4">هنرآموزان</h3>
+                    <ul class="text-right text-gray-300 space-y-2">
+                        <li>شهره پورغلام</li>
+                        <li>عبدالمحسن راستی</li>
+                        <li>فاطمه معتمد</li>
+                        <li>اسما گل نژاد</li>
+                        <li>فاطمه رحمانی</li>
+                        <li>زینت راستگو</li>
+                        <li>فرج نظری</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -571,6 +564,17 @@
             }
         }
         
+        // Toggle school details
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('show-details');
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createMeteors();
+        });
+        
         // Touch effect - create meteors on touch
         document.addEventListener('touchstart', (e) => {
             for (let i = 0; i < 3; i++) {
@@ -588,6 +592,13 @@
                 meteor.style.animationDelay = `${delay}s`;
                 
                 // Random size
-                const size = Math.random() *
+                const size = Math.random() * 3 + 1;
+                meteor.style.width = `${size}px`;
+                meteor.style.height = `${size}px`;
+                
+                document.getElementById('meteors-container').appendChild(meteor);
+            }
+        });
+    </script>
 </body>
 </html>
